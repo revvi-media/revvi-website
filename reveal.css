@@ -1,0 +1,50 @@
+/* ============================================
+   Revvi — Scroll Reveal CSS
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--reveal-delay, 0) * 100ms);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtler variant for large elements (full sections) —
+   less vertical travel so big blocks don't feel like they're
+   "dropping in" */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  transition-delay: calc(var(--reveal-delay, 0) * 100ms);
+}
+.reveal-fade.visible {
+  opacity: 1;
+}
+
+/* Nav bar: transparent-over-hero → solid once scrolled.
+   Add class="nav" + id="siteNav" to your existing nav element;
+   this only adds a background/shadow transition, doesn't change
+   your existing layout. */
+#siteNav {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+#siteNav.scrolled {
+  background-color: #0D162B;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Respect visitors who've asked for reduced motion at the OS level */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
