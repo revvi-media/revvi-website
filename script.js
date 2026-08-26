@@ -81,7 +81,10 @@ function animateCalcTo(nextAnnual, nextHoursYear) {
   calcAnimFrame = requestAnimationFrame(tick);
 }
 
-function updateCalculator() {
+// Single source of truth for the formula: both the on-page figure and the
+// sessionStorage handoff to Free Assessment read from this, so they can
+// never drift apart the way they could when each computed separately.
+function computeCalculatorValues() {
   const people = Math.max(0, Number(calcPeople.value) || 0);
   const hours = Math.max(0, Number(calcHours.value) || 0);
   const rate = Math.max(0, Number(calcRate.value) || 0);
@@ -89,16 +92,32 @@ function updateCalculator() {
   const hoursPerYear = people * hours * 52;
   const annualValue = hoursPerYear * rate;
 
+  return { annualValue, hoursPerYear };
+}
+
+function updateCalculator() {
+  const { annualValue, hoursPerYear } = computeCalculatorValues();
+
   animateCalcTo(annualValue, hoursPerYear);
 
   sessionStorage.setItem('revvi_calc_result', JSON.stringify({ annualValue, hoursPerYear }));
 }
 
 if (calcPeople && calcHours && calcRate) {
-  // Seed the running totals from the static example markup already in the HTML
-  // so the first input change animates from the displayed value, not from zero.
-  calcAnnualValue = Number(calcAnnualEl.textContent.replace(/[^0-9]/g, '')) || 0;
-  calcHoursYearValue = Number(calcHoursYearEl.textContent.replace(/[^0-9]/g, '')) || 0;
+  // Compute and store the real result for the current field values as soon
+  // as the page loads, rather than only on the first input change. Without
+  // this, sessionStorage was never written until the user touched a field,
+  // so it could still hold a stale value from an earlier visit even though
+  // the page was showing (what looked like) a fresh default — Free
+  // Assessment would then show that stale number with no way to tell it
+  // didn't match what was just on screen. Set directly (no animation) so
+  // nothing visibly moves before the user has done anything.
+  const initial = computeCalculatorValues();
+  calcAnnualValue = initial.annualValue;
+  calcHoursYearValue = initial.hoursPerYear;
+  calcAnnualEl.textContent = currencyFormatter.format(initial.annualValue);
+  calcHoursYearEl.textContent = numberFormatter.format(initial.hoursPerYear);
+  sessionStorage.setItem('revvi_calc_result', JSON.stringify(initial));
 
   calcPeople.addEventListener('input', updateCalculator);
   calcHours.addEventListener('input', updateCalculator);

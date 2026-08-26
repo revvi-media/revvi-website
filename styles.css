@@ -144,6 +144,59 @@ section {
   color: var(--purple);
 }
 
+/* Small reassurance line under the hero's trust row, muted so it doesn't
+   compete with the headline/CTA, with a lock icon tying it to the
+   Security & Control section further down the page. */
+.hero .hero-reassurance {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  /* Beats .bg-navy p's rgba(255,255,255,0.72) on specificity so this
+     actually reads as more muted than regular hero body text. */
+  color: rgba(255,255,255,0.45);
+}
+
+.hero-reassurance svg {
+  flex-shrink: 0;
+  color: var(--purple-light);
+}
+
+/* Compact, reusable version of the same reassurance-line treatment for
+   other pages (How It Works, Solutions) — not a full section, just a
+   small centred line. Defaults to muted-on-light since it's more often
+   dropped between light sections; .bg-navy scoping below flips it to the
+   muted-on-dark treatment when it sits inside a dark section instead. */
+.section-trust-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.section-trust-line svg {
+  flex-shrink: 0;
+  color: var(--purple);
+}
+
+.bg-navy .section-trust-line {
+  color: rgba(255,255,255,0.45);
+}
+
+.bg-navy .section-trust-line svg {
+  color: var(--purple-light);
+}
+
+.trust-line-band {
+  padding: 28px 0;
+}
+
 /* ==========================================================================
    Buttons
    ========================================================================== */
@@ -174,6 +227,27 @@ section {
   background: var(--purple-dark);
   transform: translateY(-1px);
   box-shadow: 0 10px 28px rgba(123, 61, 255, 0.45);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* On dark (navy) sections the button's own colour already reads as vivid
+   against the background, so the base shadow above looks like a separate
+   bright halo rather than a glow the button is sitting in. Softer, cooler
+   (true button purple, not a hotter pink-purple) and more spread out so it
+   fades into the navy instead of stopping at a hard edge. Scoped via
+   .bg-navy so it applies automatically anywhere this button appears on a
+   dark section (hero, final CTA) without touching each instance. */
+.bg-navy .btn-primary {
+  box-shadow: 0 6px 20px rgba(123, 61, 255, 0.35), 0 0 60px rgba(123, 61, 255, 0.18);
+}
+
+.bg-navy .btn-primary:hover {
+  box-shadow: 0 8px 24px rgba(123, 61, 255, 0.4), 0 0 70px rgba(123, 61, 255, 0.22);
 }
 
 /* ==========================================================================
@@ -1040,15 +1114,18 @@ section {
   margin-top: 32px;
 }
 
+/* Dark-card pill, matching the node/workflow-group-item component used
+   for the hero diagram and Solutions' workflow diagrams elsewhere on the
+   site, rather than a bespoke light-card style. */
 .industry-chip {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 10px 20px 10px 14px;
   border-radius: 999px;
-  background: var(--off-white);
-  border: 1px solid var(--border-soft);
-  box-shadow: 0 4px 14px rgba(13, 22, 43, 0.04);
+  background: var(--navy-card);
+  border: 1px solid var(--navy-card-border);
+  color: #dfe1ea;
   font-size: 0.92rem;
   font-weight: 500;
   transition: border-color 0.2s ease, background 0.2s ease;
@@ -1056,7 +1133,7 @@ section {
 
 .industry-chip:hover {
   border-color: var(--purple);
-  background: var(--lavender);
+  background: var(--navy-soft);
 }
 
 .industry-chip-icon {
@@ -1065,8 +1142,8 @@ section {
   height: 30px;
   padding: 6px;
   border-radius: 50%;
-  background: var(--lavender);
-  color: var(--purple);
+  background: var(--navy-soft);
+  color: var(--purple-light);
 }
 
 /* ==========================================================================
@@ -1153,20 +1230,23 @@ section {
   inset: -30px;
   z-index: -1;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(123, 61, 255, 0.55) 0%, rgba(123, 61, 255, 0) 70%);
-  opacity: 0.5;
+  /* Softer + a further-out fade (75% vs the old 70%) so this ambient pulse
+     matches the calmer .bg-navy .btn-primary shadow above rather than
+     reading as its own separate bright halo on top of it. */
+  background: radial-gradient(circle, rgba(123, 61, 255, 0.35) 0%, rgba(123, 61, 255, 0) 75%);
+  opacity: 0.4;
   animation: finalCtaGlow 4.5s ease-in-out infinite;
 }
 
 @keyframes finalCtaGlow {
-  0%, 100% { opacity: 0.35; transform: scale(0.96); }
-  50% { opacity: 0.6; transform: scale(1.06); }
+  0%, 100% { opacity: 0.22; transform: scale(0.96); }
+  50% { opacity: 0.4; transform: scale(1.04); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .final-cta .btn-primary::before {
     animation: none;
-    opacity: 0.45;
+    opacity: 0.3;
   }
 }
 
@@ -1218,6 +1298,62 @@ section {
 .footer-contact-link:hover {
   border-color: rgba(255,255,255,0.35);
   color: rgba(255,255,255,0.85);
+}
+
+.footer-legal-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-legal a {
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+  color: rgba(255,255,255,0.8);
+}
+
+/* ==========================================================================
+   Legal pages (Privacy Policy, Terms & Conditions): single-column shell,
+   headings + placeholder body copy only, no marketing-page section rhythm.
+   ========================================================================== */
+
+.legal-page {
+  padding: 96px 0 88px;
+}
+
+.legal-page .container {
+  max-width: 760px;
+}
+
+.legal-page h1 {
+  margin-bottom: 40px;
+}
+
+.legal-page h2 {
+  font-size: 1.25rem;
+  margin: 40px 0 12px;
+}
+
+.legal-page h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-page p {
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -1883,6 +2019,293 @@ section {
 }
 
 /* ==========================================================================
+   Free Assessment (multi-step form)
+   ========================================================================== */
+
+/* Small text label replacing the nav CTA on this page (we're already here),
+   mirrors .nav-cta's own show/hide behaviour at the mobile breakpoint. */
+.nav-page-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  padding: 11px 4px;
+}
+
+.assessment-hero {
+  padding: 96px 0 72px;
+  text-align: center;
+}
+
+.assessment-hero .container {
+  max-width: 720px;
+}
+
+.assessment-hero .hero-sub {
+  margin: 0 auto;
+}
+
+.assessment-form-container {
+  max-width: 640px;
+}
+
+.progress-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.progress-segment {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--border-soft);
+  transition: background 0.3s ease;
+}
+
+.progress-segment.is-active {
+  background: var(--purple);
+}
+
+.progress-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0 0 28px;
+}
+
+.assessment-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(13, 22, 43, 0.08);
+}
+
+.assessment-card h2 {
+  margin-bottom: 24px;
+}
+
+.form-step {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.form-step.is-active {
+  display: block;
+  animation: formStepIn 0.4s ease;
+}
+
+@keyframes formStepIn {
+  from { opacity: 0; transform: translateX(8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-step.is-active {
+    animation: none;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.form-input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-soft);
+  color: var(--ink);
+  background: var(--off-white);
+  width: 100%;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--purple);
+  background: var(--white);
+}
+
+.form-group-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 24px 0 10px;
+}
+
+.form-group-label:first-of-type {
+  margin-top: 0;
+}
+
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.checkbox-group-standalone {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.radio-option input,
+.checkbox-option input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.radio-option span,
+.checkbox-option span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-soft);
+  background: var(--off-white);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.radio-option input:checked + span,
+.checkbox-option input:checked + span {
+  border-color: var(--purple);
+  background: var(--lavender);
+  color: var(--purple-dark);
+  font-weight: 600;
+}
+
+.radio-option input:focus-visible + span,
+.checkbox-option input:focus-visible + span {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
+}
+
+/* Error colour is a deliberate one-off for form validation feedback, not
+   part of the brand palette (which has no "danger" colour defined). */
+.form-error {
+  display: none;
+  font-size: 0.82rem;
+  color: #D64545;
+  margin: 0;
+}
+
+.form-field.has-error .form-error {
+  display: block;
+}
+
+.form-field.has-error .form-input {
+  border-color: #D64545;
+}
+
+.form-error-group {
+  margin-top: 16px;
+}
+
+.form-error-group.is-visible {
+  display: block;
+}
+
+/* Honeypot: kept in the layout flow and readable to screen readers'
+   accessibility tree removed via aria-hidden, but positioned off-screen
+   so sighted visitors never see or tab to it. display:none/visibility:hidden
+   are avoided since some bots skip fields hidden that way. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-submit-error {
+  display: none;
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(214, 69, 69, 0.08);
+  border: 1px solid rgba(214, 69, 69, 0.3);
+  color: #B93A3A;
+  font-size: 0.88rem;
+}
+
+.form-submit-error a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.form-submit-error.is-visible {
+  display: block;
+}
+
+.form-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.form-nav-single {
+  justify-content: flex-end;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1.5px solid var(--border-soft);
+}
+
+.btn-secondary:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.assessment-success {
+  text-align: center;
+}
+
+.assessment-success h2 {
+  margin-bottom: 12px;
+}
+
+.calendly-embed-placeholder {
+  margin-top: 24px;
+  padding: 60px 24px;
+  border-radius: var(--radius-sm);
+  border: 1.5px dashed var(--border-soft);
+  background: var(--off-white);
+}
+
+.calendly-placeholder-text {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+/* ==========================================================================
    Responsive
    Breakpoints per brief: 860px (tablet), 480px (phone), 340px (small phone).
    Multi-column sections get an explicit stacking rule here rather than
@@ -1895,7 +2318,8 @@ section {
   }
 
   .site-nav-links,
-  .nav-cta {
+  .nav-cta,
+  .nav-page-label {
     display: none;
   }
 
@@ -1930,6 +2354,11 @@ section {
 
   .site-header.is-open .nav-cta {
     display: inline-flex;
+  }
+
+  .site-header.is-open .nav-page-label {
+    display: block;
+    padding: 0;
   }
 
   .nav-toggle.is-active span:nth-child(1) {
@@ -2274,10 +2703,31 @@ section {
   .technical-capability .tools-note {
     text-align: center;
   }
+
+  /* Free assessment: buttons are full-width at this breakpoint (see .btn
+     above), so stack Back/Next instead of squeezing them side by side.
+     column-reverse keeps the primary action (Next/Submit) on top for
+     easier thumb reach. */
+  .assessment-card {
+    padding: 28px 20px;
+  }
+
+  .form-nav {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .form-nav-single {
+    align-items: stretch;
+  }
 }
 
 @media (max-width: 340px) {
   .calculator-card {
     padding: 20px;
+  }
+
+  .assessment-card {
+    padding: 22px 16px;
   }
 }
