@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions | Revvi</title>
+<meta name="description" content="From finance and admin to sales and operations, Revvi connects the systems you already use and takes repetitive work off your team's plate.">
+<link rel="icon" type="image/png" href="assets/logo/revvi-icon-purple-on-white.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="reveal.css">
+</head>
+<body>
+
+<header class="site-header" id="siteNav">
+  <div class="container">
+    <a href="index.html" class="site-logo">
+      <img src="assets/logo/revvi-logo-lockup-dark-bg.png" alt="Revvi">
+    </a>
+    <nav class="site-nav">
+      <ul class="site-nav-links">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="solutions.html" class="is-active">Solutions</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a href="free-assessment.html" class="btn btn-primary nav-cta">BOOK FREE ASSESSMENT &rarr;</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ 1. INTRO ============ -->
+  <section class="solutions-hero bg-navy">
+    <div class="container">
+      <h1>What could Revvi automate in your business?</h1>
+      <p class="hero-sub">From finance and admin to sales and operations, Revvi connects the systems you already use and takes repetitive work off your team's plate.</p>
+      <p class="section-trust-line">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        You stay in control, human approval built into every step.
+      </p>
+      <p class="solutions-disclaimer">Examples show potential workflows. What's possible depends on your existing systems and processes.</p>
+    </div>
+  </section>
+
+  <!-- ============ 2. FINANCE & ADMIN AUTOMATION ============ -->
+  <section class="pillar-section bg-white">
+    <div class="container">
+      <h2>Finance &amp; Admin Automation</h2>
+      <p class="pillar-tagline">Invoices, reconciliations, payroll prep and the paperwork that eats your week.</p>
+      <div class="pillar-pills">
+        <span class="pillar-pill">Invoices &amp; AP</span>
+        <span class="pillar-pill">Receipt chasing</span>
+        <span class="pillar-pill">Reconciliation prep</span>
+        <span class="pillar-pill">Payroll prep</span>
+        <span class="pillar-pill">Report prep</span>
+        <span class="pillar-pill">Quote automation</span>
+      </div>
+      <div class="workflow-bar" id="wf-finance">
+        <div class="workflow-flow">
+          <div class="node" id="wf-finance-input">Invoice arrives</div>
+          <div class="line" id="wf-finance-line1"><div class="packet"></div></div>
+          <div class="core" id="wf-finance-core">revvi</div>
+          <div class="line" id="wf-finance-line2"><div class="packet"></div></div>
+          <div class="node" id="wf-finance-mid1">Xero</div>
+          <div class="line" id="wf-finance-line3"><div class="packet"></div></div>
+          <div class="result" id="wf-finance-result"><span>&check; Ready for review</span></div>
+        </div>
+      </div>
+      <ul class="pillar-bullets">
+        <li><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Key details captured and entered automatically</li>
+        <li><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Matched against PO, discrepancies flagged for review</li>
+        <li><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Approval requested automatically</li>
+        <li><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Jobs are automatically priced and a quote is prepared, ready for your review and approval.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 3. SALES & LEADS AUTOMATION ============ -->
+  <section class="pillar-section bg-grey">
+    <div class="container">
+      <h2>Sales &amp; Leads Automation</h2>
+      <p class="pillar-tagline">Capture leads faster, follow up consistently, stop letting enquiries go cold.</p>
+      <div class="pillar-pills">
+        <span class="pillar-pill">Lead capture</span>
+        <span class="pillar-pill">CRM updates</span>
+        <span class="pillar-pill">Fast response</span>
+        <span class="pillar-pill">Bookings</span>
+        <span class="pillar-pill">Follow-ups</span>
+      </div>
+      <div class="workflow-bar" id="wf-sales">
+        <div class="workflow-flow">
+          <div class="node" id="wf-sales-input">Enquiry arrives</div>
+          <div class="line" id="wf-sales-line1"><div class="packet"></div></div>
+          <div class="core" id="wf-sales-core">revvi</div>
+          <div class="line" id="wf-sales-line2"><div class="packet"></div></div>
+          <div class="workflow-group">
+            <span class="workflow-group-item" id="wf-sales-mid1">CRM</span>
+            <span class="workflow-group-item" id="wf-sales-mid2">Outlook</span>
+          </div>
+          <div class="line" id="wf-sales-line3"><div class="packet"></div></div>
+          <div class="result" id="wf-sales-result"><span>&check; Follow-up ready</span></div>
+        </div>
+      </div>
+      <ul class="pillar-bullets">
+        <li><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Customer details captured, CRM updated automatically</li>
+        <li><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Response prepared and sent</li>
+        <li><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Salesperson notified, follow-up scheduled</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 4. OPERATIONS & WORKFLOW AUTOMATION ============ -->
+  <section class="pillar-section bg-white">
+    <div class="container">
+      <h2>Operations &amp; Workflow Automation</h2>
+      <p class="pillar-tagline">Job onboarding, approvals, compliance docs, keeping systems in sync.</p>
+      <div class="pillar-pills">
+        <span class="pillar-pill">Job onboarding</span>
+        <span class="pillar-pill">Compliance docs</span>
+        <span class="pillar-pill">Purchase orders</span>
+        <span class="pillar-pill">Approvals</span>
+        <span class="pillar-pill">Status updates</span>
+      </div>
+      <div class="workflow-bar" id="wf-ops">
+        <div class="workflow-flow">
+          <div class="node" id="wf-ops-input">New job confirmed</div>
+          <div class="line" id="wf-ops-line1"><div class="packet"></div></div>
+          <div class="core" id="wf-ops-core">revvi</div>
+          <div class="line" id="wf-ops-line2"><div class="packet"></div></div>
+          <div class="workflow-group">
+            <span class="workflow-group-item" id="wf-ops-mid1">CRM</span>
+            <span class="workflow-group-item" id="wf-ops-mid2">Project system</span>
+            <span class="workflow-group-item" id="wf-ops-mid3">Team</span>
+          </div>
+          <div class="line" id="wf-ops-line3"><div class="packet"></div></div>
+          <div class="result" id="wf-ops-result"><span>&check; Job ready</span></div>
+        </div>
+      </div>
+      <ul class="pillar-bullets">
+        <li><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Project automatically set up across systems</li>
+        <li><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Reminders and status updates scheduled</li>
+        <li><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Nothing falls through the cracks</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 5. WORKS WITH THE TOOLS YOU ALREADY USE ============
+       FLAG: text pills are placeholders. Real Xero/Microsoft/HubSpot/etc.
+       logos need sourcing from each vendor's official brand guidelines
+       (approved files, correct colours, required disclaimers). Do not
+       substitute generated/approximated logos for these. ============ -->
+  <section class="tools bg-grey">
+    <div class="container">
+      <div class="section-header center">
+        <h2>Works with the tools you already use</h2>
+      </div>
+      <div class="tool-pills">
+        <span class="tool-pill">Xero</span>
+        <span class="tool-pill">Microsoft 365</span>
+        <span class="tool-pill">Outlook</span>
+        <span class="tool-pill">HubSpot</span>
+        <span class="tool-pill">Google Workspace</span>
+        <span class="tool-pill">SharePoint</span>
+        <span class="tool-pill">MYOB</span>
+        <span class="tool-pill">CRMs</span>
+        <span class="tool-pill">Job management platforms</span>
+      </div>
+      <p class="tools-note">Don't see your system? We'll check whether it can be connected.</p>
+    </div>
+  </section>
+
+  <!-- ============ 6. VALUE DELIVERED ============ -->
+  <section class="value bg-navy">
+    <div class="container">
+      <div class="section-header center">
+        <h2>Value delivered</h2>
+      </div>
+      <div class="value-row">
+        <div class="value-item">
+          <p class="value-label value-label-purple">Save time</p>
+          <p class="value-caption">Remove repetitive administration</p>
+        </div>
+        <div class="value-item">
+          <p class="value-label value-label-green">Capture revenue</p>
+          <p class="value-caption">Respond to and follow up leads consistently</p>
+        </div>
+        <div class="value-item">
+          <p class="value-label value-label-purple">Reduce admin costs</p>
+          <p class="value-caption">Give skilled staff time for higher-value work</p>
+        </div>
+      </div>
+      <div class="value-tags">
+        <span class="value-tag">Fewer errors</span>
+        <span class="value-tag">Faster response times</span>
+        <span class="value-tag">Your team stays in control</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. BUILT AROUND YOUR BUSINESS ============ -->
+  <section class="built-around bg-lavender">
+    <div class="container built-around-layout">
+      <h2>Built around your business</h2>
+      <p>Every business is different. Following your free assessment, we'll identify the highest-value opportunities and recommend where to start. Where the scope is clear, we'll provide a fixed-price proposal.</p>
+    </div>
+  </section>
+
+  <!-- ============ 8. FINAL CTA ============ -->
+  <section class="final-cta bg-navy">
+    <div class="container">
+      <h2>Ready to find your biggest opportunities?</h2>
+      <a href="free-assessment.html" class="btn btn-primary">BOOK FREE ASSESSMENT &rarr;</a>
+      <ul class="trust-row center">
+        <li><svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 15 minutes</li>
+        <li><svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> No obligation</li>
+        <li><svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Practical recommendations</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer bg-navy">
+  <div class="container">
+    <a href="index.html" class="site-logo">
+      <img src="assets/logo/revvi-logo-lockup-dark-bg.png" alt="Revvi">
+    </a>
+    <p>Revvi Media · Gold Coast, Australia · revvi.com.au</p>
+    <div class="footer-contact">
+      <a href="tel:0400000000" class="footer-contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 3h3.5l1.5 5-2.5 1.5a13 13 0 006 6l1.5-2.5 5 1.5v3.5a2 2 0 01-2 2C10.5 20 4 13.5 4 6.5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Call
+      </a>
+      <a href="mailto:hello@revvi.com.au" class="footer-contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+  <div class="container footer-legal-row">
+    <p class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="terms.html">Terms &amp; Conditions</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Workflow diagrams (Finance / Sales / Operations): reuses the same
+  // .show/.pulse/.active/.travel classes and timing pattern as the hero
+  // diagram's runStory(), just triggered once per diagram on scroll into
+  // view rather than looping on page load.
+  (function () {
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function byId(id) { return document.getElementById(id); }
+
+    function initWorkflow(prefix) {
+      var root = byId('wf-' + prefix);
+      if (!root) return;
+
+      var el = {
+        input: byId('wf-' + prefix + '-input'),
+        line1: byId('wf-' + prefix + '-line1'),
+        core: byId('wf-' + prefix + '-core'),
+        line2: byId('wf-' + prefix + '-line2'),
+        line3: byId('wf-' + prefix + '-line3'),
+        result: byId('wf-' + prefix + '-result')
+      };
+
+      var middle = [];
+      var i = 1;
+      var m = byId('wf-' + prefix + '-mid' + i);
+      while (m) {
+        middle.push(m);
+        i += 1;
+        m = byId('wf-' + prefix + '-mid' + i);
+      }
+
+      var packet1 = el.line1.querySelector('.packet');
+      var packet2 = el.line2.querySelector('.packet');
+      var packet3 = el.line3.querySelector('.packet');
+
+      function showComplete() {
+        el.input.classList.add('show');
+        el.line1.classList.add('active');
+        el.line2.classList.add('active');
+        el.line3.classList.add('active');
+        middle.forEach(function (node) { node.classList.add('show'); });
+        el.result.classList.add('show');
+      }
+
+      function run() {
+        if (prefersReducedMotion) {
+          showComplete();
+          return;
+        }
+
+        var timers = [];
+        function schedule(fn, delay) { timers.push(setTimeout(fn, delay)); }
+
+        schedule(function () { el.input.classList.add('show'); }, 100);
+
+        schedule(function () {
+          el.line1.classList.add('active');
+          packet1.classList.add('travel');
+        }, 500);
+
+        schedule(function () { el.core.classList.add('pulse'); }, 1000);
+
+        schedule(function () {
+          el.core.classList.remove('pulse');
+          el.line2.classList.add('active');
+          packet2.classList.add('travel');
+        }, 1400);
+
+        var middleStart = 1900;
+        var middleStagger = 300;
+        middle.forEach(function (node, idx) {
+          schedule(function () { node.classList.add('show'); }, middleStart + idx * middleStagger);
+        });
+
+        var line3Delay = middleStart + middle.length * middleStagger + 200;
+        schedule(function () {
+          el.line3.classList.add('active');
+          packet3.classList.add('travel');
+        }, line3Delay);
+
+        schedule(function () { el.result.classList.add('show'); }, line3Delay + 500);
+      }
+
+      if ('IntersectionObserver' in window) {
+        var started = false;
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && !started) {
+                started = true;
+                run();
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.25, rootMargin: '0px 0px -40px 0px' }
+        );
+        observer.observe(root);
+      } else {
+        run();
+      }
+    }
+
+    ['finance', 'sales', 'ops'].forEach(initWorkflow);
+  })();
+</script>
+<script src="script.js"></script>
+<script src="reveal.js" defer></script>
+</body>
+</html>

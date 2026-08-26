@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Business Assessment | Revvi</title>
+<meta name="description" content="A few quick questions, then book a time that suits you. See where your business could save time and capture more revenue.">
+<link rel="icon" type="image/png" href="assets/logo/revvi-icon-purple-on-white.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="reveal.css">
+</head>
+<body>
+
+<header class="site-header" id="siteNav">
+  <div class="container">
+    <a href="index.html" class="site-logo">
+      <img src="assets/logo/revvi-logo-lockup-dark-bg.png" alt="Revvi">
+    </a>
+    <nav class="site-nav">
+      <ul class="site-nav-links">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <span class="nav-page-label">Free Business Assessment</span>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ INTRO ============
+       Heading/subtext default to the no-calculator copy; overwritten by the
+       script at the bottom if sessionStorage.revvi_calc_result is present. -->
+  <section class="assessment-hero bg-navy">
+    <div class="container">
+      <h1 id="assessmentHeading">A simple, low-risk way to see where your business could save time and capture more revenue.</h1>
+      <p class="hero-sub" id="assessmentSub">A few quick questions, then book a time that suits you.</p>
+      <ul class="trust-row center">
+        <li><svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 15 minutes</li>
+        <li><svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> No obligation</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> Your systems, your data, your control</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FORM ============ -->
+  <section class="assessment-form-section bg-grey">
+    <div class="container assessment-form-container">
+
+      <div class="progress-bar" id="progressBar">
+        <span class="progress-segment is-active" data-step="1"></span>
+        <span class="progress-segment" data-step="2"></span>
+        <span class="progress-segment" data-step="3"></span>
+        <span class="progress-segment" data-step="4"></span>
+      </div>
+      <p class="progress-label" id="progressLabel">Step 1 of 4</p>
+
+      <form class="assessment-card" id="assessmentForm" novalidate>
+
+        <!-- Honeypot: real visitors never see or fill this in; bots that
+             auto-fill every field do, and Formspree silently discards the
+             submission when it's non-empty. Formspree's own convention for
+             this field name is "_gotcha". -->
+        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <!-- Step 1 -->
+        <fieldset class="form-step is-active" data-step="1">
+          <h2>Tell us about your business</h2>
+
+          <div class="form-field">
+            <label class="form-label" for="businessType">What type of business do you run?</label>
+            <input type="text" id="businessType" name="businessType" class="form-input">
+            <p class="form-error">Please tell us what type of business you run.</p>
+          </div>
+
+          <div class="form-field">
+            <span class="form-label">How many people work in your business?</span>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="teamSize" value="Just me"><span>Just me</span></label>
+              <label class="radio-option"><input type="radio" name="teamSize" value="2-10"><span>2-10</span></label>
+              <label class="radio-option"><input type="radio" name="teamSize" value="11-50"><span>11-50</span></label>
+              <label class="radio-option"><input type="radio" name="teamSize" value="50+"><span>50+</span></label>
+            </div>
+            <p class="form-error">Please select an option.</p>
+          </div>
+
+          <div class="form-nav form-nav-single">
+            <button type="submit" class="btn btn-primary form-next">Next &rarr;</button>
+          </div>
+        </fieldset>
+
+        <!-- Step 2 -->
+        <fieldset class="form-step" data-step="2">
+          <h2>Where is your business spending the most time?</h2>
+
+          <p class="form-group-label">Finance &amp; Admin</p>
+          <div class="checkbox-group">
+            <label class="checkbox-option"><input type="checkbox" name="timeAreas" value="Invoices &amp; document chasing"><span>Invoices &amp; document chasing</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="timeAreas" value="Data entry &amp; reporting"><span>Data entry &amp; reporting</span></label>
+          </div>
+
+          <p class="form-group-label">Sales &amp; Leads</p>
+          <div class="checkbox-group">
+            <label class="checkbox-option"><input type="checkbox" name="timeAreas" value="Responding to new leads"><span>Responding to new leads</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="timeAreas" value="Quotes &amp; follow-ups"><span>Quotes &amp; follow-ups</span></label>
+          </div>
+
+          <p class="form-group-label">Operations</p>
+          <div class="checkbox-group">
+            <label class="checkbox-option"><input type="checkbox" name="timeAreas" value="Job or project admin"><span>Job or project admin</span></label>
+            <label class="checkbox-option"><input type="checkbox" name="timeAreas" value="Compliance &amp; status updates"><span>Compliance &amp; status updates</span></label>
+          </div>
+
+          <div class="checkbox-group checkbox-group-standalone">
+            <label class="checkbox-option"><input type="checkbox" name="timeAreas" value="Not sure"><span>Not sure, that's what I want Revvi to find</span></label>
+          </div>
+
+          <p class="form-error form-error-group">Please select at least one option.</p>
+
+          <div class="form-nav">
+            <button type="button" class="btn btn-secondary form-back">&larr; Back</button>
+            <button type="submit" class="btn btn-primary form-next">Next &rarr;</button>
+          </div>
+        </fieldset>
+
+        <!-- Step 3 -->
+        <fieldset class="form-step" data-step="3">
+          <h2>What software do you use, and how much time does this take?</h2>
+
+          <div class="form-field">
+            <label class="form-label" for="software">What software or systems does your business use?</label>
+            <input type="text" id="software" name="software" class="form-input" placeholder="e.g. Xero, MYOB, ServiceM8, Excel, Outlook...">
+            <p class="form-error">Please tell us what software you use.</p>
+          </div>
+
+          <div class="form-field">
+            <span class="form-label">Roughly how much time does your team spend on this each week?</span>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="timeSpent" value="Less than 2 hours"><span>Less than 2 hours</span></label>
+              <label class="radio-option"><input type="radio" name="timeSpent" value="2-5 hours"><span>2-5 hours</span></label>
+              <label class="radio-option"><input type="radio" name="timeSpent" value="5-20 hours"><span>5-20 hours</span></label>
+              <label class="radio-option"><input type="radio" name="timeSpent" value="20-40 hours"><span>20-40 hours</span></label>
+              <label class="radio-option"><input type="radio" name="timeSpent" value="40+ hours"><span>40+ hours</span></label>
+              <label class="radio-option"><input type="radio" name="timeSpent" value="No idea"><span>No idea</span></label>
+            </div>
+            <p class="form-error">Please select an option.</p>
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="btn btn-secondary form-back">&larr; Back</button>
+            <button type="submit" class="btn btn-primary form-next">Next &rarr;</button>
+          </div>
+        </fieldset>
+
+        <!-- Step 4 -->
+        <fieldset class="form-step" data-step="4">
+          <h2>Your details</h2>
+
+          <div class="form-field">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-input">
+            <p class="form-error">Please enter your name.</p>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="businessName">Business name</label>
+            <input type="text" id="businessName" name="businessName" class="form-input">
+            <p class="form-error">Please enter your business name.</p>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" class="form-input">
+            <p class="form-error">Please enter your phone number.</p>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-input">
+            <p class="form-error">Please enter a valid email address.</p>
+          </div>
+
+          <p class="form-submit-error" id="formSubmitError">Something went wrong submitting your answers. Please try again, or email us directly at <a href="mailto:hello@revvi.com.au">hello@revvi.com.au</a>.</p>
+
+          <div class="form-nav">
+            <button type="button" class="btn btn-secondary form-back">&larr; Back</button>
+            <button type="submit" class="btn btn-primary form-submit">GET MY FREE REVVI ASSESSMENT</button>
+          </div>
+        </fieldset>
+
+      </form>
+
+      <!-- ============ SUCCESS STATE ============ -->
+      <div class="assessment-card assessment-success" id="assessmentSuccess" hidden>
+        <h2>Thanks, we'll review your answers and be in touch shortly.</h2>
+        <p>In the meantime, pick a time that works for you below.</p>
+        <!-- Calendly embed: set CALENDLY_URL in the script below once the real
+             booking link is available. The placeholder below is replaced
+             automatically, no other markup changes needed. -->
+        <div class="calendly-embed-placeholder" id="calendlyEmbed">
+          <p class="calendly-placeholder-text">[Calendly booking widget: link pending]</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer bg-navy">
+  <div class="container">
+    <a href="index.html" class="site-logo">
+      <img src="assets/logo/revvi-logo-lockup-dark-bg.png" alt="Revvi">
+    </a>
+    <p>Revvi Media · Gold Coast, Australia · revvi.com.au</p>
+    <div class="footer-contact">
+      <a href="tel:0400000000" class="footer-contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 3h3.5l1.5 5-2.5 1.5a13 13 0 006 6l1.5-2.5 5 1.5v3.5a2 2 0 01-2 2C10.5 20 4 13.5 4 6.5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Call
+      </a>
+      <a href="mailto:hello@revvi.com.au" class="footer-contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+  <div class="container footer-legal-row">
+    <p class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="terms.html">Terms &amp; Conditions</a>
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="reveal.js" defer></script>
+<script>
+  (function () {
+    // TODO: set the real Calendly link once available, e.g.
+    // 'https://calendly.com/revvi/assessment'. The placeholder box is
+    // swapped for the embed automatically, no other markup changes needed.
+    var CALENDLY_URL = '';
+
+    // TODO: set the real Formspree endpoint once the account exists, e.g.
+    // 'https://formspree.io/f/xxxxabcd'. Until this is set, submissions
+    // just log to console and show the success state immediately, same as
+    // before, so the form stays fully usable while this is pending.
+    var FORMSPREE_ENDPOINT = '';
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---- Personalised intro copy from the Home page calculator ----
+    var heading = document.getElementById('assessmentHeading');
+    var sub = document.getElementById('assessmentSub');
+    var calcRaw = sessionStorage.getItem('revvi_calc_result');
+    if (calcRaw) {
+      try {
+        var calc = JSON.parse(calcRaw);
+        var formattedValue = new Intl.NumberFormat('en-AU').format(Math.round(calc.annualValue));
+        heading.textContent = 'You could have approximately $' + formattedValue + ' of staff capacity tied up in repetitive work.';
+        sub.textContent = "Let's find where it's going. A few quick questions, then book a time that suits you.";
+      } catch (e) {
+        // Malformed sessionStorage value: fall back to the default copy already in the HTML
+      }
+    }
+
+    // ---- Multi-step form ----
+    var form = document.getElementById('assessmentForm');
+    var steps = Array.prototype.slice.call(form.querySelectorAll('.form-step'));
+    var totalSteps = steps.length;
+    var currentStep = 1;
+
+    var progressSegments = Array.prototype.slice.call(document.querySelectorAll('.progress-segment'));
+    var progressBar = document.getElementById('progressBar');
+    var progressLabel = document.getElementById('progressLabel');
+
+    function updateProgress() {
+      progressSegments.forEach(function (seg) {
+        var step = Number(seg.getAttribute('data-step'));
+        seg.classList.toggle('is-active', step <= currentStep);
+      });
+      progressLabel.textContent = 'Step ' + currentStep + ' of ' + totalSteps;
+    }
+
+    function showStep(n) {
+      steps.forEach(function (step) {
+        step.classList.toggle('is-active', Number(step.getAttribute('data-step')) === n);
+      });
+      updateProgress();
+      form.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+
+    function setFieldError(fieldEl, hasError) {
+      fieldEl.classList.toggle('has-error', hasError);
+    }
+
+    function validateStep(n) {
+      var stepEl = steps[n - 1];
+      var valid = true;
+
+      if (n === 1) {
+        var businessType = stepEl.querySelector('[name="businessType"]');
+        var typeOk = businessType.value.trim().length > 0;
+        setFieldError(businessType.closest('.form-field'), !typeOk);
+        valid = valid && typeOk;
+
+        var teamSizeChecked = stepEl.querySelector('[name="teamSize"]:checked');
+        setFieldError(stepEl.querySelector('[name="teamSize"]').closest('.form-field'), !teamSizeChecked);
+        valid = valid && !!teamSizeChecked;
+      }
+
+      if (n === 2) {
+        var anyChecked = stepEl.querySelector('[name="timeAreas"]:checked');
+        stepEl.querySelector('.form-error-group').classList.toggle('is-visible', !anyChecked);
+        valid = !!anyChecked;
+      }
+
+      if (n === 3) {
+        var software = stepEl.querySelector('[name="software"]');
+        var softwareOk = software.value.trim().length > 0;
+        setFieldError(software.closest('.form-field'), !softwareOk);
+        valid = valid && softwareOk;
+
+        var timeSpentChecked = stepEl.querySelector('[name="timeSpent"]:checked');
+        setFieldError(stepEl.querySelector('[name="timeSpent"]').closest('.form-field'), !timeSpentChecked);
+        valid = valid && !!timeSpentChecked;
+      }
+
+      if (n === 4) {
+        ['name', 'businessName', 'phone'].forEach(function (fieldName) {
+          var input = stepEl.querySelector('[name="' + fieldName + '"]');
+          var ok = input.value.trim().length > 0;
+          setFieldError(input.closest('.form-field'), !ok);
+          valid = valid && ok;
+        });
+
+        var emailInput = stepEl.querySelector('[name="email"]');
+        var emailOk = emailInput.value.trim().length > 0 && emailInput.checkValidity();
+        setFieldError(emailInput.closest('.form-field'), !emailOk);
+        valid = valid && emailOk;
+      }
+
+      return valid;
+    }
+
+    form.querySelectorAll('.form-back').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (currentStep > 1) {
+          currentStep -= 1;
+          showStep(currentStep);
+        }
+      });
+    });
+
+    var submitBtn = form.querySelector('.form-submit');
+    var submitBtnDefaultText = submitBtn.textContent;
+    var submitError = document.getElementById('formSubmitError');
+
+    function setSubmitting(isSubmitting) {
+      submitBtn.disabled = isSubmitting;
+      submitBtn.textContent = isSubmitting ? 'Submitting...' : submitBtnDefaultText;
+    }
+
+    function showSuccess() {
+      sessionStorage.removeItem('revvi_calc_result');
+
+      progressBar.hidden = true;
+      progressLabel.hidden = true;
+      form.hidden = true;
+
+      var success = document.getElementById('assessmentSuccess');
+      success.hidden = false;
+
+      if (CALENDLY_URL) {
+        var embed = document.getElementById('calendlyEmbed');
+        embed.innerHTML = '<iframe src="' + CALENDLY_URL + '" width="100%" height="700" frameborder="0" title="Book a time with Revvi"></iframe>';
+        embed.classList.remove('calendly-embed-placeholder');
+      }
+
+      success.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+
+    function showSubmitError() {
+      setSubmitting(false);
+      submitError.classList.add('is-visible');
+      submitError.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!validateStep(currentStep)) {
+        return;
+      }
+
+      if (currentStep < totalSteps) {
+        currentStep += 1;
+        showStep(currentStep);
+        return;
+      }
+
+      // Final step: collect the answers and send them on.
+      var data = {
+        businessType: form.businessType.value.trim(),
+        teamSize: (form.querySelector('[name="teamSize"]:checked') || {}).value || '',
+        timeAreas: Array.prototype.slice.call(form.querySelectorAll('[name="timeAreas"]:checked')).map(function (el) { return el.value; }),
+        software: form.software.value.trim(),
+        timeSpent: (form.querySelector('[name="timeSpent"]:checked') || {}).value || '',
+        name: form.name.value.trim(),
+        businessName: form.businessName.value.trim(),
+        phone: form.phone.value.trim(),
+        email: form.email.value.trim(),
+        _gotcha: form._gotcha.value
+      };
+
+      submitError.classList.remove('is-visible');
+
+      if (!FORMSPREE_ENDPOINT) {
+        // Not wired up yet: keep the form usable, log instead of sending.
+        console.log('Free assessment submission (Formspree endpoint not set):', data);
+        showSuccess();
+        return;
+      }
+
+      setSubmitting(true);
+
+      fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(function (response) {
+          if (response.ok) {
+            setSubmitting(false);
+            showSuccess();
+          } else {
+            showSubmitError();
+          }
+        })
+        .catch(function () {
+          showSubmitError();
+        });
+    });
+
+    updateProgress();
+  })();
+</script>
+</body>
+</html>
