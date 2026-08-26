@@ -203,12 +203,10 @@
       <div class="assessment-card assessment-success" id="assessmentSuccess" hidden>
         <h2>Thanks, we'll review your answers and be in touch shortly.</h2>
         <p>In the meantime, pick a time that works for you below.</p>
-        <!-- Calendly embed: set CALENDLY_URL in the script below once the real
-             booking link is available. The placeholder below is replaced
-             automatically, no other markup changes needed. -->
-        <div class="calendly-embed-placeholder" id="calendlyEmbed">
-          <p class="calendly-placeholder-text">[Calendly booking widget: link pending]</p>
-        </div>
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/revvi-support/30min?text_color=141826&primary_color=7b3dff" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
       </div>
 
     </div>
@@ -246,16 +244,7 @@
 <script src="reveal.js" defer></script>
 <script>
   (function () {
-    // TODO: set the real Calendly link once available, e.g.
-    // 'https://calendly.com/revvi/assessment'. The placeholder box is
-    // swapped for the embed automatically, no other markup changes needed.
-    var CALENDLY_URL = '';
-
-    // TODO: set the real Formspree endpoint once the account exists, e.g.
-    // 'https://formspree.io/f/xxxxabcd'. Until this is set, submissions
-    // just log to console and show the success state immediately, same as
-    // before, so the form stays fully usable while this is pending.
-    var FORMSPREE_ENDPOINT = '';
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvkopzqe';
 
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -380,12 +369,6 @@
 
       var success = document.getElementById('assessmentSuccess');
       success.hidden = false;
-
-      if (CALENDLY_URL) {
-        var embed = document.getElementById('calendlyEmbed');
-        embed.innerHTML = '<iframe src="' + CALENDLY_URL + '" width="100%" height="700" frameborder="0" title="Book a time with Revvi"></iframe>';
-        embed.classList.remove('calendly-embed-placeholder');
-      }
 
       success.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
     }

@@ -2290,19 +2290,8 @@ section {
   margin-bottom: 12px;
 }
 
-.calendly-embed-placeholder {
+.calendly-inline-widget {
   margin-top: 24px;
-  padding: 60px 24px;
-  border-radius: var(--radius-sm);
-  border: 1.5px dashed var(--border-soft);
-  background: var(--off-white);
-}
-
-.calendly-placeholder-text {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--ink-soft);
 }
 
 /* ==========================================================================
@@ -2719,6 +2708,14 @@ section {
 
   .form-nav-single {
     align-items: stretch;
+  }
+
+  /* Calendly's own embed snippet sets an inline min-width:320px on the
+     widget, which is wider than the space left once the container and
+     card padding are subtracted at this breakpoint, causing horizontal
+     overflow. The !important is necessary to beat that inline style. */
+  .calendly-inline-widget {
+    min-width: 0 !important;
   }
 }
 
