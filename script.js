@@ -122,6 +122,25 @@ if (calcPeople && calcHours && calcRate) {
   calcPeople.addEventListener('input', updateCalculator);
   calcHours.addEventListener('input', updateCalculator);
   calcRate.addEventListener('input', updateCalculator);
+
+  // Custom +/- buttons, replacing the native spinners hidden in CSS (those
+  // render on desktop but not on mobile, so the control behaved differently
+  // depending on device). These run the same recalculation a typed change
+  // does, so both entry methods stay in sync.
+  document.querySelectorAll('.calc-step').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const field = document.getElementById(btn.dataset.stepFor);
+      if (!field) return;
+
+      const step = Number(field.step) || 1;
+      const direction = Number(btn.dataset.stepDir);
+      const min = field.min === '' ? -Infinity : Number(field.min);
+      const current = Number(field.value) || 0;
+
+      field.value = Math.max(min, current + step * direction);
+      updateCalculator();
+    });
+  });
 }
 
 // Stat rings: draw-in + number count-up, once, on scroll into view

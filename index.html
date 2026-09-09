@@ -135,15 +135,27 @@
       <div class="calculator-card">
         <div class="calc-inputs">
           <label for="calc-people">People doing the work
-            <input type="number" id="calc-people" value="5" min="0" step="1">
+            <span class="calc-stepper">
+              <button type="button" class="calc-step" data-step-for="calc-people" data-step-dir="-1" aria-label="Decrease people doing the work">&minus;</button>
+              <input type="number" id="calc-people" value="5" min="0" step="1">
+              <button type="button" class="calc-step" data-step-for="calc-people" data-step-dir="1" aria-label="Increase people doing the work">+</button>
+            </span>
           </label>
           <label for="calc-hours">Hours per week, per person
-            <input type="number" id="calc-hours" value="10" min="0" step="1">
+            <span class="calc-stepper">
+              <button type="button" class="calc-step" data-step-for="calc-hours" data-step-dir="-1" aria-label="Decrease hours per week, per person">&minus;</button>
+              <input type="number" id="calc-hours" value="10" min="0" step="1">
+              <button type="button" class="calc-step" data-step-for="calc-hours" data-step-dir="1" aria-label="Increase hours per week, per person">+</button>
+            </span>
           </label>
           <label for="calc-rate">Average hourly cost (incl. super)
-            <span class="calc-input-prefix">
-              <span class="calc-prefix-symbol">$</span>
-              <input type="number" id="calc-rate" value="45" min="0" step="1">
+            <span class="calc-stepper">
+              <button type="button" class="calc-step" data-step-for="calc-rate" data-step-dir="-1" aria-label="Decrease average hourly cost">&minus;</button>
+              <span class="calc-input-prefix">
+                <span class="calc-prefix-symbol">$</span>
+                <input type="number" id="calc-rate" value="45" min="0" step="1">
+              </span>
+              <button type="button" class="calc-step" data-step-for="calc-rate" data-step-dir="1" aria-label="Increase average hourly cost">+</button>
             </span>
           </label>
         </div>
@@ -357,7 +369,7 @@
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </span>
           </summary>
-          <p>No. It removes repetitive work so your team can focus on higher-value tasks.</p>
+          <p>It removes repetitive work so your team can focus on higher-value tasks.</p>
         </details>
         <details class="faq-item" name="faq">
           <summary>Do we need new software?
@@ -411,7 +423,7 @@
     </a>
     <p>Revvi Media · Gold Coast, Australia · revvi.com.au</p>
     <div class="footer-contact">
-      <a href="tel:0400000000" class="footer-contact-link">
+      <a href="tel:0477204208" class="footer-contact-link">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 3h3.5l1.5 5-2.5 1.5a13 13 0 006 6l1.5-2.5 5 1.5v3.5a2 2 0 01-2 2C10.5 20 4 13.5 4 6.5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Call
       </a>
@@ -425,7 +437,7 @@
     <p class="footer-legal">
       <a href="privacy-policy.html">Privacy Policy</a>
       <span aria-hidden="true">&middot;</span>
-      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="terms.html">Terms of Business</a>
     </p>
   </div>
 </footer>
