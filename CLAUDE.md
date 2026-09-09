@@ -39,4 +39,7 @@ The animated hero (3-story rotating workflow diagram: Sales/Finance/Operations) 
 - Hero CTA button text: "Get My Free Business Assessment" (nav CTA is shorter: "Get Free Assessment")
 - No AI/robot imagery anywhere — the hero uses the animated workflow diagram instead
 - No pricing shown except the specific worked examples confirmed in the copy doc
-- Calculator formula: hours/week × hourly rate × 48 weeks = annual value (Mark confirmed this)
+- Calculator formula: people × hours/week × hourly rate × 52 weeks = annual value (confirmed)
+  - 52 weeks, not 48: Australian annual leave is paid, so an hourly rate already reflects cost across the full year
+  - The people multiplier is intended: the calculator has a "People doing the work" field and the result is total team capacity, not one person's
+  - This supersedes the earlier "48 weeks, no people multiplier" note, which was an early rough estimate, not a confirmed figure
