@@ -6,9 +6,12 @@
 - Hosted on Vercel, deployed via this GitHub repo (auto-deploys on push to main)
 
 ## Brand
-- Primary colour: Purple #7B3DFF (buttons, links, active states — used sparingly)
+- Purple #7B3DFF (links, active states, icon accents, decorative diagram elements)
 - Dark background: Navy #0D162B (hero, footer, and alternating dark sections)
-- Success/results colour: Green #1F9E5A (savings figures, positive outcomes ONLY — never a general brand colour)
+- Green #1F9E5A (primary action colour AND success/results colour)
+  - Used for: all primary buttons site-wide ("Book Free Assessment"), savings and outcome figures, step numbers, accent borders on icon tiles and capability pills, checkmarks and ticks
+  - Hover state: #187A46 (--green-dark)
+  - CHANGED 10 September 2026 at the client's request. The primary button was originally purple by design; the client asked for "a bit more colour" and green was applied deliberately across buttons and accent elements. This is a confirmed client decision, not a mistake: do NOT revert buttons or accents to purple in a future session.
 - Light section background: Off-white #F8F9FB
 - CTA section background: Soft lavender #F1EBFF
 - Headings font: Poppins (headings only, strict — never used for body text)
